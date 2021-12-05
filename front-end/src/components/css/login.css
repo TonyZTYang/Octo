@@ -1,0 +1,19 @@
+#container_authentication {
+    margin-top: 50px;
+    width: 500px;
+}
+
+#button_submit {
+    width: 100%;
+}
+
+#button_switch_process {
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    cursor: pointer;
+    float: right;
+    color: black;
+    margin-top: 10px;
+}
