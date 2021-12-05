@@ -15,7 +15,7 @@ function isLoggedIn() {
 function App() {
     return (
         <div className="App">
-            <NavBar />
+            <Authentication />
         </div>
     );
 }
