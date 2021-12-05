@@ -1,11 +1,24 @@
 import { Nav } from "react-bootstrap";
 
-function Items() {
+/*
+Admin
+    - Project
+    - Employee
+
+Customer
+    - Dashboard
+*/
+
+function AdminItems() {
     return (
         <Nav.Item>
-            
+
         </Nav.Item>
     );
+}
+
+function CustomerItems() {
+
 }
 
 function NavBar() {
@@ -16,5 +29,4 @@ function NavBar() {
     );
 }
 
-export const NavItems = Items;
 export default NavBar;
