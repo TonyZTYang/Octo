@@ -9,22 +9,13 @@ Customer
     - Dashboard
 */
 
-function AdminItems() {
-    return (
-        <Nav.Item>
-
-        </Nav.Item>
-    );
-}
-
-function CustomerItems() {
+function Items() {
 
 }
 
 function NavBar() {
     return (
-        <Nav>
-        </Nav>
+        <p>good</p>
     );
 }
 
