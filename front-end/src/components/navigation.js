@@ -24,7 +24,6 @@ function CustomerItems() {
 function NavBar() {
     return (
         <Nav>
-            <Items />
         </Nav>
     );
 }
