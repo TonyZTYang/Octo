@@ -5,8 +5,6 @@ import React from "react";
 import Container from "react-bootstrap/Container"
 import Button from "react-bootstrap/Button"
 
-import Hello from "./hello"
-
 class SideBar extends React.Component {
 
     static instance = null;
@@ -30,7 +28,6 @@ class SideBar extends React.Component {
     render() {
         return (
             <Container id="container_nav_bar">
-                <MenuItem pageName="Hello" content={Hello}/>
             </Container>
         );
     }
