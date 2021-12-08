@@ -37,6 +37,7 @@ class SideBar extends React.Component {
                     <MenuItem icon="upload" pageName="Upload File" content={null}/>
                     <MenuItem icon="download" pageName="Download File" content={null}/>
                 </Stack>
+
             </Container>
         );
     }
