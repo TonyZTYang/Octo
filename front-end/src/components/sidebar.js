@@ -4,6 +4,7 @@ import React from "react";
 
 import Container from "react-bootstrap/Container"
 import Button from "react-bootstrap/Button"
+import Stack from "react-bootstrap/Stack"
 
 class SideBar extends React.Component {
 
@@ -13,9 +14,8 @@ class SideBar extends React.Component {
         super(props);
 
         this.state = {
-            prevPage: null,
-            currentPage: null // TODO: start page will be dashboard
-        }
+            currentButton: null
+        };
 
         this.setContent = props.setContent.bind();
         SideBar.instance = this;
@@ -28,6 +28,11 @@ class SideBar extends React.Component {
     render() {
         return (
             <Container id="container_nav_bar">
+                <Stack gap={2} id="stack_menu">
+                    <MenuItem icon="dashboard" pageName="Dashboard" content={Hello}/>
+                    <MenuItem icon="project" pageName="Project" content={null}/>
+                </Stack>
+
             </Container>
         );
     }
@@ -41,8 +46,26 @@ class MenuItem extends React.Component {
         super(props);
     }
 
+    onClick() {
+        SideBar.instance.setContent(this.props.content);
+        SideBar.instance.setState({
+            currentButton: this
+        });
+    }
+
     render() {
-        return (<Button className="button_nav_menu" onClick={() => {SideBar.instance.setContent(this.props.content)}}>{this.props.pageName}</Button>);
+        if(SideBar.instance.state.currentButton === this)
+            return (
+                <Button className="menu_item selected" onClick={() => {this.onClick()}}>
+                    {this.props.pageName}
+                </Button>
+            );
+        else 
+            return (
+                <Button className="menu_item unselected" onClick={() => {this.onClick()}}>
+                    {this.props.pageName}
+                </Button>
+            );
     }
 }
 
