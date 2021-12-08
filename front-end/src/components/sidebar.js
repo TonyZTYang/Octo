@@ -15,9 +15,8 @@ class SideBar extends React.Component {
         super(props);
 
         this.state = {
-            prevPage: null,
-            currentPage: null // TODO: start page will be dashboard
-        }
+            currentButton: null
+        };
 
         this.setContent = props.setContent.bind();
         SideBar.instance = this;
@@ -44,8 +43,18 @@ class MenuItem extends React.Component {
         super(props);
     }
 
+    onClick() {
+        SideBar.instance.setContent(this.props.content);
+        SideBar.instance.setState({
+            currentButton: this
+        });
+    }
+
     render() {
-        return (<Button className="button_nav_menu" onClick={() => {SideBar.instance.setContent(this.props.content)}}>{this.props.pageName}</Button>);
+        if(SideBar.instance.state.currentButton === this)
+            return (<Button className="selected" onClick={() => {this.onClick()}}>{this.props.pageName}</Button>);
+        else
+            return (<Button className="unselected" onClick={() => {this.onClick()}}>{this.props.pageName}</Button>);
     }
 }
 
