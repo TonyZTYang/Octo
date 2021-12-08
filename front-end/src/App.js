@@ -4,8 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import SideBar from "./components/sidebar.js"
 import Container from "react-bootstrap/Container"
 import Authentication from "./components/authentication";
-import { Col, Row } from "react-bootstrap";
 import React, { useState } from "react"
+import Hello from "./components/hello"
 
 /*
 TODO:
@@ -20,7 +20,7 @@ class Content extends React.Component {
 
     render() {
         return (
-            <Container id="container_content">
+            <Container id="container_content" >
                 {this.props.content}
             </Container>
         )
@@ -38,7 +38,7 @@ function App() {
 
     return (
         <Container fluid id="container_body">
-            <SideBar setContent={setContent} />
+            <SideBar setContent={setContent}/>
             <Content content={currentContent} />
         </Container>
     );
