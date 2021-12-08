@@ -5,7 +5,6 @@ import SideBar from "./components/sidebar.js"
 import Container from "react-bootstrap/Container"
 import Authentication from "./components/authentication";
 import React, { useState } from "react"
-import Hello from "./components/hello"
 
 /*
 TODO:

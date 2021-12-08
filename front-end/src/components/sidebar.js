@@ -1,8 +1,10 @@
 import "./css/sidebar.css"
 
-import Container from "react-bootstrap/Container"
 import React from "react";
+
+import Container from "react-bootstrap/Container"
 import Button from "react-bootstrap/Button"
+
 import Hello from "./hello"
 
 class SideBar extends React.Component {
@@ -14,7 +16,7 @@ class SideBar extends React.Component {
 
         this.state = {
             prevPage: null,
-            currentPage: null // TODO: start page will be dash board
+            currentPage: null // TODO: start page will be dashboard
         }
 
         this.setContent = props.setContent.bind();
