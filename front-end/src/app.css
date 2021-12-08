@@ -1,3 +1,11 @@
-.App {
-    text-align: center;
+#container_body {
+    background-color: blue;
+    height: 100vh;
+    padding: 0;
+}
+
+#container_content {
+    background-color: magenta;
+    width: 100%;
+    float: left;
 }

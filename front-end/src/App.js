@@ -1,11 +1,31 @@
+import "./app.css"
+
 import "bootstrap/dist/css/bootstrap.min.css"
-import NavBar from "./components/navigation.js"
+import SideBar from "./components/sidebar.js"
+import Container from "react-bootstrap/Container"
 import Authentication from "./components/authentication";
+import { Col, Row } from "react-bootstrap";
+import React, { useState } from "react"
 
 /*
 TODO:
     USERS MUST LOGIN BEFORE USING THINGS
 */
+
+class Content extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <Container id="container_content">
+                {this.props.content}
+            </Container>
+        )
+    }
+}
 
 function isLoggedIn() {
 
@@ -13,14 +33,14 @@ function isLoggedIn() {
 }
 
 function App() {
+
+    const [currentContent, setContent] = useState(() => {return("")});
+
     return (
-        <div className="App">
-<<<<<<< HEAD
-            <NavBar /> 
-=======
->>>>>>> 236217c7887c7aea6d0c234024ea43eaca56606b
-            <Authentication />
-        </div>
+        <Container fluid id="container_body">
+            <SideBar setContent={setContent} />
+            <Content content={currentContent} />
+        </Container>
     );
 }
 
