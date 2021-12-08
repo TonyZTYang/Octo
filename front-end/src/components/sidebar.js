@@ -4,6 +4,7 @@ import React from "react";
 
 import Container from "react-bootstrap/Container"
 import Button from "react-bootstrap/Button"
+import Stack from "react-bootstrap/Stack"
 
 import Hello from "./hello"
 
@@ -29,7 +30,10 @@ class SideBar extends React.Component {
     render() {
         return (
             <Container id="container_nav_bar">
-                <MenuItem pageName="Hello" content={Hello}/>
+                <Stack gap={2} id="stack_menu">
+                    <MenuItem icon="dashboard" pageName="Dashboard" content={Hello}/>
+                    <MenuItem icon="project" pageName="Project" content={null}/>
+                </Stack>
             </Container>
         );
     }
@@ -52,9 +56,17 @@ class MenuItem extends React.Component {
 
     render() {
         if(SideBar.instance.state.currentButton === this)
-            return (<Button className="selected" onClick={() => {this.onClick()}}>{this.props.pageName}</Button>);
-        else
-            return (<Button className="unselected" onClick={() => {this.onClick()}}>{this.props.pageName}</Button>);
+            return (
+                <Button className="menu_item selected" onClick={() => {this.onClick()}}>
+                    {this.props.pageName}
+                </Button>
+            );
+        else 
+            return (
+                <Button className="menu_item unselected" onClick={() => {this.onClick()}}>
+                    {this.props.pageName}
+                </Button>
+            );
     }
 }
 
