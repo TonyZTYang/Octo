@@ -29,7 +29,7 @@ class SideBar extends React.Component {
         return (
             <Container id="container_nav_bar">
                 <Stack gap={2} id="stack_menu">
-                    <MenuItem icon="dashboard" pageName="Dashboard" content={Hello}/>
+                    <MenuItem icon="dashboard" pageName="Dashboard" content={null}/>
                     <MenuItem icon="project" pageName="Project" content={null}/>
                 </Stack>
 
