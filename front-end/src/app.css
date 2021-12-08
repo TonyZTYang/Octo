@@ -1,12 +1,13 @@
 #container_body {
     height: 100vh;
     padding: 0;
+    display: flex;
 }
 
 #container_content {
-    background-color: pink;
     width: 100%;
-    float: left;
-    margin-left: 100px;
-    margin-top: 50px;
+    height: 100%;
+    padding-left: 100px;
+    padding-top: 50px;
+    max-width:none;
 }
