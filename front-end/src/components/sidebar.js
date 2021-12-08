@@ -5,8 +5,8 @@ import React from "react";
 import Container from "react-bootstrap/Container"
 import Button from "react-bootstrap/Button"
 import Stack from "react-bootstrap/Stack"
-
-import Hello from "./hello"
+import Image from "react-bootstrap/Image"
+import Icon from "./icon.png"
 
 class SideBar extends React.Component {
 
@@ -31,8 +31,11 @@ class SideBar extends React.Component {
         return (
             <Container id="container_nav_bar">
                 <Stack gap={2} id="stack_menu">
-                    <MenuItem icon="dashboard" pageName="Dashboard" content={Hello}/>
+                    <Image src={Icon} rounded id="icon"/>
+                    <MenuItem icon="dashboard" pageName="Dashboard" content={null}/>
                     <MenuItem icon="project" pageName="Project" content={null}/>
+                    <MenuItem icon="upload" pageName="Upload File" content={null}/>
+                    <MenuItem icon="download" pageName="Download File" content={null}/>
                 </Stack>
             </Container>
         );
