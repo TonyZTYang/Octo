@@ -6,8 +6,6 @@ import Container from "react-bootstrap/Container"
 import Button from "react-bootstrap/Button"
 import Stack from "react-bootstrap/Stack"
 
-import Hello from "./hello"
-
 class SideBar extends React.Component {
 
     static instance = null;
@@ -34,6 +32,7 @@ class SideBar extends React.Component {
                     <MenuItem icon="dashboard" pageName="Dashboard" content={Hello}/>
                     <MenuItem icon="project" pageName="Project" content={null}/>
                 </Stack>
+
             </Container>
         );
     }
