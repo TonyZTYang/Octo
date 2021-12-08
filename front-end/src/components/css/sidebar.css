@@ -1,0 +1,21 @@
+#container_nav_bar {
+    background-color: hsl(0, 0%, 92%);
+    width: 300px;
+    height: 100%;
+    float: left;
+    padding: 0;
+    padding-top: 10px;
+    text-align: center;
+}
+
+Button {
+    background-color:hsl(0, 0%, 92%) !important;
+    border: 0 !important;
+    color: black !important;
+    width: 90%;
+    margin-bottom: 5px;
+}
+
+Button:hover {
+    background-color: hsl(0, 0%, 81%) !important;
+}
