@@ -14,10 +14,12 @@
     border: 0 !important;
     color: rgb(255, 255, 255) !important;
     width: 90%;
+    height: fit-content;
     margin-bottom: 5px;
     font-weight: bold;
     text-align: left;
     letter-spacing: 1px;
+
 }
 
 .selected {
@@ -25,6 +27,7 @@
     border: 0 !important;
     color: black !important;
     width: 90%;
+    height: fit-content;
     margin-bottom: 5px;
     font-weight: bold;
     text-align: left;
