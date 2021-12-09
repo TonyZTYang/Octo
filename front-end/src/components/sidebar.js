@@ -8,6 +8,7 @@ import Stack from "react-bootstrap/Stack"
 import Image from "react-bootstrap/Image"
 import Icon from "./icon.png"
 
+
 class SideBar extends React.Component {
 
     static instance = null;
