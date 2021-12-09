@@ -1,14 +1,15 @@
 #container_nav_bar {
     display: flex;
     background-color:#000021;
-    width: 20vw;
+    width: 15%;
     min-width: 200px;
-    max-width: 300px;
+    max-width: 350px;
     height: 100%;
     float: left;
     padding: 0;
     align-items: center !important;
     border-right: 1px hsl(0, 0%, 33%);
+    position: fixed !important;
 }
 
 #stack_menu {
