@@ -5,6 +5,7 @@ import React from "react";
 import Container from "react-bootstrap/Container"
 import Button from "react-bootstrap/Button"
 import Stack from "react-bootstrap/Stack"
+import Dashboard from "./Dashboard.js"
 import Image from "react-bootstrap/Image"
 import Icon from "./icon.png"
 
@@ -33,7 +34,7 @@ class SideBar extends React.Component {
             <Container id="container_nav_bar">
                 <Stack gap={2} id="stack_menu">
                     <Image src={Icon} rounded id="icon" onClick={() => this.setContent(null)}/>
-                    <MenuItem icon="dashboard" pageName="Dashboard" content={null}/>
+                    <MenuItem icon="dashboard" pageName="Dashboard" content={Dashboard}/>
                     <MenuItem icon="project" pageName="Project" content={null}/>
                     <MenuItem icon="upload" pageName="Upload" content={null}/>
                     <MenuItem icon="download" pageName="Download" content={null}/>
