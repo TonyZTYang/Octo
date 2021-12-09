@@ -1,20 +1,28 @@
 #container_nav_bar {
-    display: flex !important;
-    background-color: hsl(0, 0%, 30%);
+    display: flex;
+    background-color:#000021;
+    width: 15%;
     min-width: 200px;
     max-width: 350px;
-    width: 16%;
     height: 100%;
     float: left;
     padding: 0;
     align-items: center !important;
     border-right: 1px hsl(0, 0%, 33%);
+    position: fixed !important;
 }
 
 #stack_menu {
     display: flex;
     align-items: center;
-    margin: auto;
+}
+
+#icon {
+    display: flex;
+    width: 150px;
+    margin: 0 !important;
+    margin-bottom: 100px !important;
+    margin-top: 40px !important;
 }
 
 .menu_item {
@@ -22,7 +30,6 @@
     border: 0 !important;
     width: 90%;
     height: fit-content;
-    font-weight: bold;
     font-size: 20px;
     text-align: center left;
     align-items: center;
@@ -30,7 +37,7 @@
 }
 
 .unselected {
-    background-color:hsl(0, 0%, 30%) !important;
+    background-color: #000021 !important;
     color: rgb(255, 255, 255) !important;
 }
 
