@@ -156,7 +156,7 @@ class UploadClass extends React.Component {
               <option value="178635">New York</option>
               <option value="34256">Shanghai</option>
               <option value="18762">Abu Dhabi</option>
-            </select> Number of Sites : {this.state.a}
+            </select> Number of Detection Points : {this.state.a}
             
 
           </form> 

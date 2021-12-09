@@ -38,7 +38,6 @@ class SideBar extends React.Component {
                 <Stack gap={2} id="stack_menu">
                     <Image src={Icon} rounded id="icon" onClick={() => this.setContent(null)}/>
                     <MenuItem icon="dashboard" pageName="Dashboard" content={Dashboard}/>
-                    <MenuItem icon="project" pageName="Project" content={null}/>
                     <MenuItem icon="upload" pageName="Upload" content={Upload}/>
                     <MenuItem icon="download" pageName="Download" content={Download}/>
                 </Stack>

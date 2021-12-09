@@ -7,7 +7,7 @@ class DownloadClass extends React.Component {
     constructor(prop) {
       super(prop)
       
-      const defaultFileType = "json"; 
+      const defaultFileType = "csv"; 
       this.fileNames = {
           json: "sites.json",
         csv: "sites.csv",
@@ -30,8 +30,11 @@ class DownloadClass extends React.Component {
       }
 
       this.state = {
-          a: Math.floor(Math.random() * 100000)
+          a: Math.floor(Math.random() * 100000),
+          fileType: this.site.fileType
+
       }
+
 
         this.changeFileType = this.changeFileType.bind(this);
         this.download = this.download.bind(this);
@@ -179,8 +182,7 @@ class DownloadClass extends React.Component {
             <a className="hidden"
                download={this.fileNames[this.state.fileType]}
                href={this.state.fileDownloadUrl}
-               ref={e=>this.dofileDownload = e}
-            >download it</a>
+               ref={e=>this.dofileDownload = e} />
             
             
           </form>
