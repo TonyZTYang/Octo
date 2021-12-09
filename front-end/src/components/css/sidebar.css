@@ -1,7 +1,9 @@
 #container_nav_bar {
     display: flex !important;
     background-color: hsl(0, 0%, 30%);
-    width: 300px;
+    min-width: 200px;
+    max-width: 350px;
+    width: 16%;
     height: 100%;
     float: left;
     padding: 0;
