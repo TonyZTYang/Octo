@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import './css/FileIO.css' 
 import 'bootstrap/dist/css/bootstrap.min.css'
-class FileIO extends React.Component {
+class Download extends React.Component {
     constructor(prop) {
       super(prop)
       
@@ -189,4 +189,4 @@ class FileIO extends React.Component {
     }
   }
 
-export default FileIO
+export default Download

@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 class Upload extends React.Component {
     constructor(prop) {
       super(prop)
-
       
       const defaultFileType = "json"; 
       this.fileNames = {
@@ -28,17 +27,23 @@ class Upload extends React.Component {
             { site: "Wisconsin",      points: 10 },
         ]
       }
+
+      this.state = {
+          a: Math.floor(Math.random() * 100000)
+      }
+
         this.changeFileType = this.changeFileType.bind(this);
         this.download = this.download.bind(this);
         this.upload = this.upload.bind(this);
         this.openFile = this.openFile.bind(this);
+        this.onProjChange = this.onProjChange.bind(this);
     }
     
     changeFileType (event) {
       const value = event.target.value;
         this.setState({fileType: value});
     }
-    
+
     download (event) {
       event.preventDefault();
         // Prepare the file
@@ -128,44 +133,50 @@ class Upload extends React.Component {
         reader.onload = fileloaded;
         reader.readAsText(fileObj);  
     }
-    
+
+    onProjChange() {
+        this.setState({
+            a: Math.floor(Math.random() * 100000)
+        });
+    }
+
     render() {
       return (
+        
         <div id = 'Upload'>
           <h2>Project</h2>
-          <table>
-            <thead>
-            <tr><th>Sites</th><th>Number of Points</th></tr>
-            </thead>
-            <tbody>
-            {this.site.data.map(item => (
-              <tr key={item.site}>
-                <td>{item.site}</td><td>{item.points}</td>
-              </tr>
-            ))}          
-              </tbody> 
-          </table>
+        
           <form>
-            <span className="mr">File type:</span>
-            <select name="fileType"
-              onChange={this.changeFileType}
-              value={this.site.fileType}
+            <span className="mr">Project Site:</span>
+            <select name="ProjectSite"
+              onChange={this.onProjChange}
               className="mr"
             >
-              <option value="csv">CSV</option>
-              <option value="json">JSON</option>
-              <option value="text">Text</option>
-            </select>
+              <option value="178635">New York</option>
+              <option value="34256">Shanghai</option>
+              <option value="18762">Abu Dhabi</option>
+            </select> Number of Sites : {this.state.a}
             
-            <button type="button" class="btn btn-outline-dark" onClick={this.download}>
-              Download the file!
-            </button>
+
+          </form> 
+          Select a site:
+              <form>
+              
+                <select name="Choose Site" 
+                //   onChange={this.onProjChange}
+                //   className="mr"
+                >
+                <option value="178635">1</option>
+                <option value="34256">2</option>
+                <option value="18762">3</option>
+                </select> 
+                
+            </form> 
+          
+
+          
+          <form>
             
-            <a className="hidden"
-               download={this.fileNames[this.site.fileType]}
-               href={this.site.fileDownloadUrl}
-               ref={e=>this.dofileDownload = e}
-            >download it</a>
             
             <p><button type="button" class="btn btn-outline-dark" onClick={this.upload}>
               Upload a file!
