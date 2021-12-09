@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import './css/FileIO.css' 
+import "./css/Download.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
-class Download extends React.Component {
+
+class DownloadClass extends React.Component {
     constructor(prop) {
       super(prop)
       
@@ -188,5 +189,11 @@ class Download extends React.Component {
         )
     }
   }
+
+function Download() {
+  return (
+    <DownloadClass />
+  );
+}
 
 export default Download

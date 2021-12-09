@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './css/Upload.css' 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-class Upload extends React.Component {
+class UploadClass extends React.Component {
     constructor(prop) {
       super(prop)
       
@@ -195,5 +195,11 @@ class Upload extends React.Component {
         )
     }
   }
+
+function Upload() {
+  return (
+    <UploadClass />
+  );
+}
 
 export default Upload
