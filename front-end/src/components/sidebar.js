@@ -5,9 +5,12 @@ import React from "react";
 import Container from "react-bootstrap/Container"
 import Button from "react-bootstrap/Button"
 import Stack from "react-bootstrap/Stack"
-import Dashboard from "./Dashboard.js"
 import Image from "react-bootstrap/Image"
 import Icon from "./icon.png"
+
+import Dashboard from "./Dashboard"
+import Upload from "./Upload"
+import Download from "./Download"
 
 
 class SideBar extends React.Component {

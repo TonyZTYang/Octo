@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import './css/Upload.css' 
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 class Upload extends React.Component {
     constructor(prop) {
       super(prop)
