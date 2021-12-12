@@ -49,10 +49,6 @@ class SideBar extends React.Component {
 
 class MenuItem extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     onClick() {
         SideBar.instance.setContent(this.props.content);
         SideBar.instance.setState({
