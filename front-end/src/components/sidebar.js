@@ -23,13 +23,8 @@ class SideBar extends React.Component {
             currentButton: null
         };
 
-        this.setContent = props.setContent.bind();
-
+        this.setContent = props.setContent.bind(this);
         SideBar.instance = this;
-    }
-
-    changePage(content) {
-        return content;
     }
 
     render() {
