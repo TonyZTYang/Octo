@@ -33,51 +33,11 @@ class UploadClass extends React.Component {
           a: Math.floor(Math.random() * 100000)
       }
 
-        this.changeFileType = this.changeFileType.bind(this);
-        this.download = this.download.bind(this);
         this.upload = this.upload.bind(this);
         this.openFile = this.openFile.bind(this);
         this.onProjChange = this.onProjChange.bind(this);
     }
     
-    changeFileType (event) {
-      const value = event.target.value;
-        this.setState({fileType: value});
-    }
-
-    download (event) {
-      event.preventDefault();
-        // Prepare the file
-      let output;
-      if (this.site.fileType === "json") {
-          output = JSON.stringify({site: this.site.data}, 
-            null, 4);
-      } else if (this.site.fileType === "csv"){
-        // Prepare data:
-        let contents = [];
-        contents.push (["site", "points"]);
-        this.site.data.forEach(row => {
-            contents.push([row.site, row.points])
-        });
-        output = this.makeCSV(contents);
-      } else if (this.site.fileType === "text"){
-        // Prepare data:
-        output = '';
-        this.site.data.forEach(row => {
-            output += `${row.site}: ${row.points}\n`
-        });
-      }
-      // Download it
-      const blob = new Blob([output]);
-      const fileDownloadUrl = URL.createObjectURL(blob);
-      this.setState ({fileDownloadUrl: fileDownloadUrl}, 
-        () => {
-          this.dofileDownload.click(); 
-          URL.revokeObjectURL(fileDownloadUrl);  // free up storage--no longer needed.
-          this.setState({fileDownloadUrl: ""})
-      })    
-    }
-  
     /**
      * Function returns the content as a CSV string
      * See https://stackoverflow.com/a/20623188/64904

@@ -12,7 +12,6 @@ import Dashboard from "./Dashboard"
 import Upload from "./Upload"
 import Download from "./Download"
 
-
 class SideBar extends React.Component {
 
     static instance = null;
@@ -25,6 +24,7 @@ class SideBar extends React.Component {
         };
 
         this.setContent = props.setContent.bind();
+
         SideBar.instance = this;
     }
 
@@ -36,7 +36,7 @@ class SideBar extends React.Component {
         return (
             <Container id="container_nav_bar">
                 <Stack gap={2} id="stack_menu">
-                    <Image src={Icon} rounded id="icon" onClick={() => this.setContent(null)}/>
+                    <Image src={Icon} rounded id="icon"/>
                     <MenuItem icon="dashboard" pageName="Dashboard" content={Dashboard}/>
                     <MenuItem icon="upload" pageName="Upload" content={Upload}/>
                     <MenuItem icon="download" pageName="Download" content={Download}/>
@@ -48,8 +48,6 @@ class SideBar extends React.Component {
 }
 
 class MenuItem extends React.Component {
-
-    static setContent;
 
     constructor(props) {
         super(props);
