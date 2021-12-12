@@ -1,17 +1,20 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import './css/FileIO.css' 
+import "./css/Download.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
-class Download extends React.Component {
+
+class DownloadClass extends React.Component {
     constructor(prop) {
       super(prop)
       
-      const defaultFileType = "json"; 
+      const defaultFileType = "csv"; 
+
       this.fileNames = {
-          json: "sites.json",
+        json: "sites.json",
         csv: "sites.csv",
         text: "sites.txt"
       }    
+
       this.site = {
         fileType: defaultFileType,
         fileDownloadUrl: null,
@@ -29,8 +32,11 @@ class Download extends React.Component {
       }
 
       this.state = {
-          a: Math.floor(Math.random() * 100000)
+          a: Math.floor(Math.random() * 100000),
+          fileType: this.site.fileType
+
       }
+
 
         this.changeFileType = this.changeFileType.bind(this);
         this.download = this.download.bind(this);
@@ -178,8 +184,7 @@ class Download extends React.Component {
             <a className="hidden"
                download={this.fileNames[this.state.fileType]}
                href={this.state.fileDownloadUrl}
-               ref={e=>this.dofileDownload = e}
-            >download it</a>
+               ref={e=>this.dofileDownload = e} />
             
             
           </form>
@@ -188,5 +193,11 @@ class Download extends React.Component {
         )
     }
   }
+
+function Download() {
+  return (
+    <DownloadClass />
+  );
+}
 
 export default Download
