@@ -37,7 +37,6 @@ class Dash extends React.Component {
 
             </Container>
         );
-        
     }
 }
 
