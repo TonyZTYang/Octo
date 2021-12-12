@@ -24,12 +24,8 @@ class SideBar extends React.Component {
             currentButton: null
         };
 
-        this.setContent = props.setContent.bind();
+        this.setContent = props.setContent.bind(this);
         SideBar.instance = this;
-    }
-
-    changePage(content) {
-        return content;
     }
 
     render() {
@@ -51,10 +47,6 @@ class SideBar extends React.Component {
 class MenuItem extends React.Component {
 
     static setContent;
-
-    constructor(props) {
-        super(props);
-    }
 
     onClick() {
         SideBar.instance.setContent(this.props.content);
