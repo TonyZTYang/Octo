@@ -1,5 +1,4 @@
 #container_download {
-    background-color: blue;
     text-align: center;
     width: 100%;
     margin: 0 !important;
@@ -8,10 +7,10 @@
 
 #container_project {
     margin: 0;
+    padding: 0;
 }
 
 #container_buttons {
     display: flex;
-    flex-direction: column;
-    height: 500px;
+    width: 250px;
 }

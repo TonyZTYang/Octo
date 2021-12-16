@@ -11,30 +11,25 @@ class Dash extends React.Component {
     render() {
         return (
             <Container>
-                <div id="dbHeader">
-                    
-                    <h1 > Dashboard </h1>
-                    
-                    <ColoredLine color="lightgray" />
+                <h1 > Dashboard </h1>
+                
+                <ColoredLine color="lightgray" />
 
-                    <h2> Progress Tracker </h2>
-                    <ProgressBar now={45} />
+                <h2> Progress Tracker </h2>
+                <ProgressBar now={45} />
 
-                    <h2> Team </h2>
-                    
-                    <ListGroup as="ol" numbered>
-                        <ListGroup.Item as="li">Jia Song</ListGroup.Item>
-                        <ListGroup.Item as="li">Li Yunru</ListGroup.Item>
-                        <ListGroup.Item as="li">Xu Bohai</ListGroup.Item>
-                        <ListGroup.Item as="li">Zheng Fengge</ListGroup.Item>
-                        <ListGroup.Item as="li">Zhou Wen</ListGroup.Item>
-                    </ListGroup>
-                    
+                <h2> Team </h2>
+                
+                <ListGroup as="ol" numbered>
+                    <ListGroup.Item as="li">Jia Song</ListGroup.Item>
+                    <ListGroup.Item as="li">Li Yunru</ListGroup.Item>
+                    <ListGroup.Item as="li">Xu Bohai</ListGroup.Item>
+                    <ListGroup.Item as="li">Zheng Fengge</ListGroup.Item>
+                    <ListGroup.Item as="li">Zhou Wen</ListGroup.Item>
+                </ListGroup>
+                
 
-                    <DoughnutChart></DoughnutChart>
-            
-                </div>
-
+                <DoughnutChart/>
             </Container>
         );
         

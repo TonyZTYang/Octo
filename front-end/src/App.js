@@ -19,7 +19,7 @@ class Content extends React.Component {
 
     render() {
         return (
-            <Container id="container_content" >
+            <Container id="container_content">
                 {this.props.content}
             </Container>
         )

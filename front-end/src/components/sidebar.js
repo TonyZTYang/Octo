@@ -2,15 +2,14 @@ import "./css/sidebar.css"
 
 import React from "react";
 
-import Container from "react-bootstrap/Container"
-import Button from "react-bootstrap/Button"
-import Stack from "react-bootstrap/Stack"
-import Image from "react-bootstrap/Image"
-import Icon from "./icon.png"
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import Stack from "react-bootstrap/Stack";
+import Image from "react-bootstrap/Image";
+import Icon from "./icon.png";
 
-import Dashboard from "./Dashboard"
-import Upload from "./Upload"
-import Download from "./Download"
+import Dashboard from "./Dashboard";
+import {Upload, Download} from "./FileIO"
 
 class SideBar extends React.Component {
 
