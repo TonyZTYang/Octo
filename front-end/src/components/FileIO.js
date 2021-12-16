@@ -3,9 +3,11 @@ import "./css/FileIO.css"
 import React from "react";
 
 import Container from "react-bootstrap/Container";
-
+import Dropdown from "react-bootstrap/Dropdown"
+import DropdownButton from "react-bootstrap/DropdownButton"
 import Button from "react-bootstrap/Button"
-import Collapse from "react-bootstrap/Collapse"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 import Stack from "react-bootstrap/Stack"
 
 class UploadClass extends React.Component {
@@ -28,11 +30,28 @@ class UploadClass extends React.Component {
         return (
             <Container id="container_download">
 
-                <ProjectSelect/>
-                <DeviceSelect/>
-                <Summary/>
+                <Row>
+                    <Col>
+                        <Container id="container_selections">
+                            <Stack gap={3}>
+                                <ProjectSelect/>
+                                <DeviceSelect/>
+                            </Stack>
+                        </Container>
+                    </Col>
+                    <Col>
+                        <Summary >
+                            <h1>
+                                test
+                            </h1>
+                            <h2>
+                                testing
+                            </h2>
+                        </Summary>
+                    </Col>
+                </Row>
 
-                <ControlButtons action="Upload" doAction={this.upload} />
+                <Button className="actionButton" onClick={this.upload}>Upload</Button>
 
             </Container>
         )
@@ -58,13 +77,42 @@ class DownloadClass extends React.Component {
         return (
             <Container id="container_download">
 
-                <ProjectSelect/>
-                <DeviceSelect/>
-                <Summary/>
+                <Row>
+                    <Col>
+                        <Container id="container_selections">
+                            <Stack gap={3}>
+                                <ProjectSelect/>
+                                <DeviceSelect/>
+                            </Stack>
+                        </Container>
+                    </Col>
+                    <Col>
+                        <Summary >
+                            <h1>
+                                test
+                            </h1>
+                            <h2>
+                                testing
+                            </h2>
+                        </Summary>
+                    </Col>
+                </Row>
 
-                <ControlButtons action="Download" doAction={this.download}/>
+                <Button className="actionButton" onClick={this.download}>Download</Button>
+
 
             </Container>
+        );
+    }
+}
+
+class DropMenu extends React.Component {
+
+    render() {
+        return (
+            <DropdownButton id="dropdown-item-button" size={100} title={this.props.title}>
+                {this.props.children}
+            </DropdownButton>
         );
     }
 }
@@ -73,6 +121,7 @@ const ProjectSelect = () => {
     return (
         <Container id="container_project">
             <h1>Select Project</h1>
+            <DropMenu title="project"/>
             {
                 /*
                     TODO: BACKEND CALL AND UPDATE DROPMENU 
@@ -88,8 +137,9 @@ const ProjectSelect = () => {
 
 const DeviceSelect = () => {
     return (
-        <Container id="container_project">
+        <Container id="container_device">
             <h1>Select Device</h1>
+            <DropMenu title="device"/>
             {
                 // TODO: BACKEND CALL AND UPDATE DROPBMENU
             }
@@ -97,31 +147,14 @@ const DeviceSelect = () => {
     );
 };
 
-const Summary = () => {
+const Summary = (props) => {
     return (
-        <Container id="container_project">
+        <Container id="container_summary">
             <h1>Summary</h1>
-            {
-                // TODO: GET SUMMARY FROM BACKEND CALL RESULT
-            }
+            {props.children}
         </Container>
     );
 };
-
-
-class ControlButtons extends React.Component {
-
-    render() {
-        return (
-            <Container id="container_buttons">
-                <Stack gap={2}>
-                    <Button onClick={() => {this.props.doAction()}}>{this.props.action}</Button>
-                </Stack>
-            </Container>
-        );
-    }
-
-}
 
 function Upload() {
     return <UploadClass />

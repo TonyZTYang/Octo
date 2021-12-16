@@ -1,16 +1,46 @@
 #container_download {
-    text-align: center;
+    display: flex;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-direction: column;
+}
+
+#container_project {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-#container_project {
+#container_device {
+    width: 100%;
     margin: 0;
     padding: 0;
 }
 
-#container_buttons {
+#container_selections {
     display: flex;
-    width: 250px;
+    flex-direction: column;
+    width: 100%;
+    min-width: 300px;
+    height: 100%;
+    float: left;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#container_summary {
+    width: 100%;
+    margin: 0;
+    float: left;
+    padding: 0;
+}
+
+.actionButton {
+    width: 20%;
+    margin: 0;
+    margin-top: 30px;
+    align-self: center;
 }
