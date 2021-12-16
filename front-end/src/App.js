@@ -5,6 +5,7 @@ import SideBar from "./components/sidebar.js"
 import Container from "react-bootstrap/Container"
 import Authentication from "./components/authentication";
 import React, { useState } from "react"
+import axios from "axios"
 
 /*
 TODO:
@@ -18,6 +19,9 @@ class Content extends React.Component {
     }
 
     render() {
+        axios.get("/hello")
+        .then(res=>console.log(res))
+        .catch((error)=>console.log(error))
         return (
             <Container id="container_content" >
                 {this.props.content}
@@ -30,6 +34,8 @@ function isLoggedIn() {
 
     return false;
 }
+
+
 
 function App() {
 
