@@ -2,18 +2,18 @@ import "./css/sidebar.css"
 
 import React from "react";
 
-import Container from "react-bootstrap/Container"
-import Button from "react-bootstrap/Button"
+import Container from "react-bootstrap/Container"//Side bar uses bootstrap container: Our application is structured around the sidebar, 
+import Button from "react-bootstrap/Button"// so every function should be able to be accessed by clicking the navbar
 import Stack from "react-bootstrap/Stack"
 import Image from "react-bootstrap/Image"
 import Icon from "./icon.png"
-
+// This section imports all the functions of the site
 import Dashboard from "./Dashboard"
 import Upload from "./Upload"
 import Download from "./Download"
 
 class SideBar extends React.Component {
-
+//The constructor set the default state
     static instance = null;
 
     constructor(props) {
@@ -31,7 +31,8 @@ class SideBar extends React.Component {
     changePage(content) {
         return content;
     }
-
+// Each menu item is a function 
+// Only supports functions not classes
     render() {
         return (
             <Container id="container_nav_bar">
@@ -46,7 +47,7 @@ class SideBar extends React.Component {
         );
     }
 }
-
+// Controls the actions of the buttons
 class MenuItem extends React.Component {
 
     onClick() {
@@ -57,13 +58,13 @@ class MenuItem extends React.Component {
     }
 
     render() {
-        if(SideBar.instance.state.currentButton === this)
+        if(SideBar.instance.state.currentButton === this) // This allows the buttons to look different when selecting with mouse
             return (
                 <Button className="menu_item selected" onClick={() => {this.onClick()}}>
                     {this.props.pageName}
                 </Button>
             );
-        else 
+        else // Default behavior
             return (
                 <Button className="menu_item unselected" onClick={() => {this.onClick()}}>
                     {this.props.pageName}
