@@ -16,17 +16,23 @@ class UploadClass extends React.Component {
         this.state = {
             step: 1
         }
+
+        this.upload = this.upload.bind(this);
+    }
+
+    upload() {
+        // TODO: UPLOAD A FILE
     }
 
     render() {
         return (
             <Container id="container_download">
 
-                <ProjectSelect context={this} step={1}/>
-                <DeviceSelect context={this} step={2}/>
-                <Summary context={this} step={3}/>
+                <ProjectSelect/>
+                <DeviceSelect/>
+                <Summary/>
 
-                <ControlButtons context={this} action="Upload" steps={3} />
+                <ControlButtons action="Upload" doAction={this.upload} />
 
             </Container>
         )
@@ -40,96 +46,76 @@ class DownloadClass extends React.Component {
         this.state = {
             step: 1
         }
+
+        this.download = this.download.bind(this);
+    }
+
+    download() {
+        // TODO: DOWNLOAD A FILE
     }
 
     render() {
         return (
             <Container id="container_download">
 
-                <ProjectSelect context={this} step={1}/>
-                <DeviceSelect context={this} step={2}/>
-                <Summary context={this} step={3}/>
+                <ProjectSelect/>
+                <DeviceSelect/>
+                <Summary/>
 
-                <ControlButtons context={this} action="Download" steps={3}/>
+                <ControlButtons action="Download" doAction={this.download}/>
 
             </Container>
         );
     }
 }
 
-const ProjectSelect = (props) => {
+const ProjectSelect = () => {
     return (
-        <Collapse in={props.context.state.step === props.step}>
-            <Container id="container_project">
-                <h1>Select Project</h1>
-                {
-                    /*
-                        TODO: BACKEND CALL AND UPDATE DROPMENU 
-                        "id": "",
-                        "name": "",
-                        "no points": "",
-                        "expected size": ""
-                    */
-                }
-            </Container>
-        </Collapse>
+        <Container id="container_project">
+            <h1>Select Project</h1>
+            {
+                /*
+                    TODO: BACKEND CALL AND UPDATE DROPMENU 
+                    "id": "",
+                    "name": "",
+                    "no points": "",
+                    "expected size": ""
+                */
+            }
+        </Container>
     );
 };
 
-const DeviceSelect = (props) => {
+const DeviceSelect = () => {
     return (
-        <Collapse in={props.context.state.step === props.step}>
-            <Container id="container_project">
-                <h1>Select Device</h1>
-                {
-                    // TODO: BACKEND CALL AND UPDATE DROPBMENU
-                }
-            </Container>
-        </Collapse>
+        <Container id="container_project">
+            <h1>Select Device</h1>
+            {
+                // TODO: BACKEND CALL AND UPDATE DROPBMENU
+            }
+        </Container>
     );
 };
 
-
-const Summary = (props) => {
+const Summary = () => {
     return (
-        <Collapse in={props.context.state.step === props.step}>
-            <Container id="container_project">
-                <h1>Summary</h1>
-                {
-                    // TODO: GET SUMMARY FROM BACKEND CALL RESULT
-                }
-            </Container>
-        </Collapse>
+        <Container id="container_project">
+            <h1>Summary</h1>
+            {
+                // TODO: GET SUMMARY FROM BACKEND CALL RESULT
+            }
+        </Container>
     );
 };
 
 
 class ControlButtons extends React.Component {
 
-    next() {
-        if(this.props.context.state.step == 3)
-            return;
-        
-        this.props.context.setState({
-            step: this.props.context.state.step += 1
-        });
-    }
-
-    prev() {
-        this.props.context.setState({
-            step: this.props.context.state.step -= 1
-        });
-    }
-
     render() {
-        console.log(this.props.context.state.step);
         return (
             <Container id="container_buttons">
                 <Stack gap={2}>
-                    <Button onClick={() => {this.next()}}>{this.props.context.state.step === this.props.steps ? this.props.action : "Continue"}</Button>
-                    <Collapse in={!(this.props.context.state.step === 1)}>
-                        <Button onClick={() => {this.prev()}}>Go back</Button>
-                    </Collapse>
+                    <Button onClick={() => {this.props.doAction()}}>{this.props.action}</Button>
                 </Stack>
             </Container>
         );
