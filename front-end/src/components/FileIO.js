@@ -122,7 +122,6 @@ class ControlButtons extends React.Component {
     }
 
     render() {
-        console.log(this.props.context.state.step);
         return (
             <Container id="container_buttons">
                 <Stack gap={2}>
