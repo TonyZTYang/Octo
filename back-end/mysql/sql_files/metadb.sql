@@ -62,13 +62,6 @@ create table user
 	UserName varchar(255) default '' not null comment '用户名',
 	Password varchar(255) default '' not null comment '加密后密码',
 	Name varchar(255) default '' not null comment '姓名',
-	Sex varchar(255) default '' not null comment '性别',
-	IdentityID varchar(255) default '' null comment '身份证号',
-	Cellphone varchar(11) default '' not null comment '移动电话',
-	Birthday date null comment '生日',
-	RoleID int default 0 not null comment '角色ID',
-	constraint fk_role
-		foreign key (RoleID) references user_role (Id)
-			on update cascade
+	RoleID int default 0 not null comment '角色ID'
 );
 
