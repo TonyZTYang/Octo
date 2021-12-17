@@ -1,0 +1,19 @@
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
+
+h1{
+    margin-top: 10px;
+}
+
+
+h3{
+    margin-top: 10px !important;
+}
+
+
+#personnelBox, #ddlBox, #dateTime{
+    margin-top: 1em;
+}
+
+#dateTime{
+    margin-bottom: 0;
+}
