@@ -37,7 +37,7 @@ class SideBar extends React.Component {
                     <MenuItem icon="upload" pageName="Upload" content={Upload}/>
                     <MenuItem icon="download" pageName="Download" content={Download}/>
                     <DropButton pageName="Project">
-
+                        <MenuItem pageName="Create"/>
                     </DropButton>
                 </Stack>
 
@@ -70,7 +70,7 @@ class DropButton extends React.Component {
                     <Button className="menu_item unselected" onClick={this.onClick}> {this.props.pageName} </Button>
                     <Collapse in={this.state.toggled}>
                         <div id="container_dropdown_item">
-                            <MenuItem pageName="Create"/>
+                            {this.props.children}
                         </div>
                     </Collapse>
                  </Stack>               
