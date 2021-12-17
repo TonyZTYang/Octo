@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
         
     };
      
-    let content = JSON.parse(fs.readFileSync('../users/user.json', 'utf8')); // opens the local json file
+    let content = JSON.parse(fs.readFileSync('./users/user.json', 'utf8')); // opens the local json file
     // edit or add property
     if (user.name in content){
         res.post('302');

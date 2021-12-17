@@ -19,7 +19,7 @@ class Content extends React.Component {
     }
 
     render() {
-        axios.get("/hello")
+        axios.get("/index")
         .then(res=>console.log(res))
         .catch((error)=>console.log(error))
         return (
