@@ -14,7 +14,7 @@ create table projects
 (
 	id int auto_increment comment '项目ID'
 		primary key,
-	start_date date default current_date comment '开始日期',
+	start_date date default (current_date) comment '开始日期',
 	dead_line_date date comment '合同截止日期',
 	end_date date comment '结束日期',
 	total_count int default 0 comment '项目总点数',
@@ -31,7 +31,7 @@ create table user_log
 	Id int auto_increment comment 'ID'
 		primary key,
 	UserName varchar(255) default '' not null comment '用户名',
-	LoginTime timestamp default '0000-00-00 00:00:00' not null comment '登录时间',
+	LoginTime timestamp not null comment '登录时间',
 	Role varchar(255) default '' not null comment '用户角色'
 );
 

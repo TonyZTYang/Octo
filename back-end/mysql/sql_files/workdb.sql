@@ -6,8 +6,7 @@ create table comtype_info
 	PName varchar(255) null comment '父名称',
 	Level int(2) not null comment '层级关系',
 	TestRate varchar(255) null comment '检测频率'
-)
-charset=utf8;
+);
 
 create table data_record
 (
@@ -50,8 +49,7 @@ create table data_record
 	IsWeiXiu varchar(255) null comment '维修点',
 	IsHeGe varchar(255) null comment '是否合格',
 	IsXieLou varchar(255) null comment '泄漏点'
-)
-charset=utf8;
+);
 
 create index index_pic_pot
 	on data_record (PictureID, PointID);
@@ -69,8 +67,7 @@ create table device_info
 	QingYe int null comment '轻液泄漏标准',
 	ZhongYe int null comment '重液泄漏标准',
 	YanZhong int null comment '严重泄漏标准'
-)
-charset=utf8;
+);
 
 create table jiaozhun_record
 (
@@ -84,10 +81,9 @@ create table jiaozhun_record
 	IsSuccess varchar(255) default '' not null comment '成功或超限',
 	WenDu varchar(255) default '' not null comment '环境温度',
 	FengSu varchar(255) default '' not null comment '风速',
-	JiaoZhunTime date default '0000-00-00' not null comment '校准时间',
+	JiaoZhunTime date not null comment '校准时间',
 	Person varchar(255) default '' not null comment '校准时间'
-)
-charset=utf8;
+);
 
 create table medium_state
 (
@@ -95,8 +91,7 @@ create table medium_state
 		primary key,
 	ChineseName varchar(255) not null comment '介质状态名称',
 	EnglishName varchar(255) null comment '介质状态英文名'
-)
-charset=utf8;
+);
 
 create table picture_info
 (
@@ -120,8 +115,7 @@ create table picture_info
 	PicTypeWithPoint varchar(255) null comment '带点照片格式',
 	constraint Id
 		unique (Id)
-)
-charset=utf8;
+);
 
 alter table picture_info
 	add primary key (Id);
@@ -132,8 +126,7 @@ create table productstream
 		primary key,
 	ChineseName varchar(255) not null comment '介质名称',
 	MediumYinZi varchar(255) not null comment '介质因子'
-)
-charset=utf8;
+);
 
 create table std_gas
 (
@@ -141,10 +134,9 @@ create table std_gas
 		primary key,
 	StdGasNum varchar(255) default '' not null comment '标准气编号',
 	ActualDensity varchar(255) default '' not null comment '实际浓度',
-	EffectiveTime date default '0000-00-00' not null comment '有效期',
+	EffectiveTime date not null comment '有效期',
 	TheoryDensityID varchar(255) default '' not null comment '理论浓度'
-)
-charset=utf8;
+);
 
 create table test_instrument
 (
@@ -152,10 +144,9 @@ create table test_instrument
 		primary key,
 	Name varchar(255) default '' not null comment '仪器名称',
 	Number varchar(255) default '' not null comment '仪器编号',
-	LastTime date default '0000-00-00' not null comment '最后精密校准时间',
+	LastTime date not null comment '最后精密校准时间',
 	InstrumentYinZi double null comment '响应因子'
-)
-charset=utf8;
+);
 
 create table test_rate
 (
@@ -163,8 +154,7 @@ create table test_rate
 		primary key,
 	ChineseName varchar(255) default '' not null comment '中文名',
 	EnglishName varchar(255) default '' null comment '英文名'
-)
-charset=utf8;
+);
 
 create table theory_density
 (
@@ -173,15 +163,6 @@ create table theory_density
 	TheoryDensity varchar(255) default '' not null comment '标准气理论浓度',
 	IsDayCorrect char default '' not null comment '日常校准',
 	IsDriftCorrect char default '' not null comment '漂移校准'
-)
-charset=utf8;
-
-create table work_laws
-(
-	Id int auto_increment comment 'ID'
-		primary key,
-	LawId int default 0 not null comment '法规ID'
-)
-charset=utf8;
+);
 
 
