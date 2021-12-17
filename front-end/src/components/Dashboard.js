@@ -33,8 +33,15 @@ class DashboardClass extends React.Component {
     render() {
         if(this.state.currentProject === null) {
             return (
-                <Container id="container_project">
-                    <ProjectSelect context={this} projects={this.state.projects} />
+                <Container>
+
+                    <h1 > Dashboard </h1>
+                    
+                    <ColoredLine color="lightgray" />
+
+                    <Container id="container_project">
+                        <ProjectSelect context={this} projects={this.state.projects} />
+                    </Container>
                 </Container>
             );
         } else 
