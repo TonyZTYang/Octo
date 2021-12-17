@@ -51,7 +51,7 @@ class UploadClass extends React.Component {
                                 <DeviceSelect context={this} devices={this.state.devices}/>
 
                                 <Stack gap={1}>
-                                    <Button className="actionButton">Choose a file</Button>.
+                                    <Form.Control type="file" id="test"/>
                                     <Button className="actionButton">Upload</Button>
                                 </Stack>
                             </Stack>

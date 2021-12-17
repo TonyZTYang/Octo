@@ -20,7 +20,7 @@
 }
 
 .actionButton {
-    width: 150px;
+    width: 240px;
     margin: 0;
     align-self: center;
     background-color: #000051 !important;
@@ -31,6 +31,6 @@
 }
 
 #test{
-    width: 150px;
+    width: 240px;
     align-self: center;
 }
