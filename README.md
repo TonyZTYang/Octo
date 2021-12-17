@@ -7,3 +7,5 @@ Zetong Yang
 A real-world applicable Leak Detection and Repair (LDAR) management system for the environmental engineering industry in China. 
 
 Leak Detection and Repair is an emerging industry in China after the legislature came out requiring factories to detect leakage in their piping and equipment.
+
+The test folder contains a REST file that can be used with the VS code REST CLIENT to test api calls
