@@ -1,24 +1,4 @@
-create table baojing_record
-(
-	Id int auto_increment comment 'ID'
-		primary key,
-	ProjectName varchar(255) null comment '项目名称',
-	Content varchar(1024) null comment '报警内容',
-	BJTime datetime null comment '报警时间'
-);
-
-create table laws
-(
-	Id int auto_increment comment 'ID'
-		primary key,
-	FileName varchar(255) not null comment '文件名称',
-	FileSize double not null comment '文件大小',
-	FileType varchar(255) default '' not null comment '文件类型',
-	uploadtime timestamp default '0000-00-00 00:00:00' null on update CURRENT_TIMESTAMP comment '上传时间',
-	File mediumblob null comment '文件实体'
-);
-
-create table option_log
+create table operation_log
 (
 	Id int auto_increment comment 'ID'
 		primary key,
@@ -32,20 +12,18 @@ create table option_log
 
 create table projects
 (
-	Id int auto_increment comment '项目ID'
+	id int auto_increment comment '项目ID'
 		primary key,
-	StartDate date default '0000-00-00' not null comment '开始日期',
-	EndDate date default '0000-00-00' not null comment '结束日期',
-	HaveTestCount varchar(255) default '-' null comment '已检测点数',
-	NoTestCount varchar(255) default '-' null comment '未检测点数',
-	LeakCount varchar(255) default '-' null comment '泄露点数',
-	DOR varchar(255) null,
-	TotalCount varchar(255) default '-' null comment '总计',
-	IsFinished varchar(255) default '' not null comment '是否完成',
-	DBName varchar(255) default '' not null comment '数据库名称',
-	ProjectName varchar(255) default '' not null comment '项目名称',
-	TestType varchar(255) default '' null comment '检测类型',
-	BaoJingCount int null comment '报警次数记录'
+	start_date date default current_date comment '开始日期',
+	dead_line_date date comment '合同截止日期',
+	end_date date comment '结束日期',
+	total_count int default 0 comment '项目总点数',
+	detected_count int default 0 comment '已检测点数',
+	leakage_count int default 0 comment '泄露点数',
+	is_finished bool default false comment '是否完成',
+	db_name varchar(255) default '' not null comment '数据库名称',
+	project_name varchar(255) default '' not null comment '项目名称',
+	detection_type varchar(255) default '' null comment '检测类型'
 );
 
 create table user_log
@@ -86,11 +64,9 @@ create table user
 	Name varchar(255) default '' not null comment '姓名',
 	Sex varchar(255) default '' not null comment '性别',
 	IdentityID varchar(255) default '' null comment '身份证号',
-	Telephone varchar(255) null comment '电话',
 	Cellphone varchar(11) default '' not null comment '移动电话',
 	Birthday date null comment '生日',
 	RoleID int default 0 not null comment '角色ID',
-	OldPsd varchar(255) default '' null comment '加密前密码',
 	constraint fk_role
 		foreign key (RoleID) references user_role (Id)
 			on update cascade
