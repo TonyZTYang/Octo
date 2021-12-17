@@ -9,7 +9,7 @@ import Col from "react-bootstrap/Col"
 import Stack from "react-bootstrap/Stack"
 import axios from "axios"
 
-import {ProjectSelect, DeviceSelect, Summary} from "./Components"
+import {ColoredLine, ProjectSelect, DeviceSelect, Summary} from "./Components"
 
 
 class UploadClass extends React.Component {
@@ -38,6 +38,9 @@ class UploadClass extends React.Component {
     render() {
         return (
             <Container id="container_download">
+
+                <h1> Upload </h1>
+                <ColoredLine color="lightgray"/>
 
                 <Row>
                     <Col>
@@ -91,6 +94,10 @@ class DownloadClass extends React.Component {
     render() {
         return (
             <Container id="container_download">
+
+                <h1> Download </h1>
+                <ColoredLine color="lightgray"/>
+
                 <Row>
                     <Col>
                         <Container id="container_selections">
@@ -118,7 +125,6 @@ class DownloadClass extends React.Component {
         );
     }
 }
-
 
 export const Upload = () => {return <UploadClass/>}
 export const Download = () => {return <DownloadClass/>}

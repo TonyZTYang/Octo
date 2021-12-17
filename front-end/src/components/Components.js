@@ -119,3 +119,15 @@ export const Summary = (props) => {
         </Container>
     );
 };
+
+
+export const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+            color: color,
+            backgroundColor: color,
+            height: 2
+        }}
+    />
+);
+
