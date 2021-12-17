@@ -14,7 +14,7 @@ import Dashboard from "./Dashboard";
 import {Upload, Download} from "./FileIO"
 
 class SideBar extends React.Component {
-
+//The constructor set the default state
     static instance = null;
 
     constructor(props) {
@@ -95,13 +95,13 @@ class MenuItem extends React.Component {
     }
 
     render() {
-        if(SideBar.instance.state.currentButton === this)
+        if(SideBar.instance.state.currentButton === this) // This allows the buttons to look different when selecting with mouse
             return (
                 <Button className="menu_item selected" onClick={() => {this.onClick()}}>
                     {this.props.pageName}
                 </Button>
             );
-        else 
+        else // Default behavior
             return (
                 <Button className="menu_item unselected" onClick={() => {this.onClick()}}>
                     {this.props.pageName}
