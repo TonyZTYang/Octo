@@ -33,7 +33,7 @@ class DashboardClass extends React.Component {
     render() {
         if(this.state.currentProject === null) {
             return (
-                <Container>
+                <Container id="container_dashboard">
 
                     <h1 > Dashboard </h1>
                     
@@ -46,7 +46,7 @@ class DashboardClass extends React.Component {
             );
         } else 
             return (
-                <Container>
+                <Container id="container_dashboard">
 
                     <Stack gap={3}>
                     
