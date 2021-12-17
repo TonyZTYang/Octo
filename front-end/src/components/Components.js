@@ -1,21 +1,14 @@
+import "./css/components.css"
+
 import React from "react";
 
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton"
 import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
-import Stack from "react-bootstrap/Stack"
 
 class ProjectMenuItem extends React.Component {
     constructor(props) {
         super(props);
-
-        this.id = props.item["id"];
-        this.name = props.item["name"];
-        this.points = props.item["points"];
-        this.size = props.item["eSize"];
 
         this.clicked = this.clicked.bind(this);
     }
@@ -27,7 +20,7 @@ class ProjectMenuItem extends React.Component {
     }
 
     render() {
-        return <Dropdown.Item as="button" onClick={this.clicked}>{this.name}</Dropdown.Item>;
+        return <Dropdown.Item as="button" onClick={this.clicked}>{this.props.item["name"]}</Dropdown.Item>;
     }
 }
 
@@ -126,3 +119,15 @@ export const Summary = (props) => {
         </Container>
     );
 };
+
+
+export const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+            color: color,
+            backgroundColor: color,
+            height: 2
+        }}
+    />
+);
+

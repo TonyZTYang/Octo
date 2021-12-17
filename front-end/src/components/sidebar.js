@@ -13,7 +13,6 @@ import Image from "react-bootstrap/Image"
 import Icon from "./icon.png"
 
 import Collapse from "react-bootstrap/Collapse"
-
 import {Upload, Download} from "./FileIO"
 
 class SideBar extends React.Component {
@@ -43,6 +42,7 @@ class SideBar extends React.Component {
                         <MenuItem pageName="Create" content={CreateProject}/>
                         <MenuItem pageName="Delete" content={ProjectDel}/>
                         <MenuItem pageName="End" content={ProjectEnd}/>
+
                     </DropButton>
                 </Stack>
 
@@ -73,11 +73,13 @@ class DropButton extends React.Component {
             <Container id="container_dropdown_button">
                 <Stack gap={2} id="stack_menu">
                     <Button className="menu_item unselected" onClick={this.onClick}> {this.props.pageName} </Button>
+                    <div id="dropdown_menu">
                     <Collapse in={this.state.toggled}>
                         <div id="container_dropdown_item">
                             {this.props.children}
                         </div>
                     </Collapse>
+                    </div>
                  </Stack>               
             </Container>
         );
