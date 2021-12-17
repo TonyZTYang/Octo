@@ -3,12 +3,16 @@ import "./css/FileIO.css"
 import React from "react";
 
 import Container from "react-bootstrap/Container";
-import Dropdown from "react-bootstrap/Dropdown"
 import DropdownButton from "react-bootstrap/DropdownButton"
 import Button from "react-bootstrap/Button"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Stack from "react-bootstrap/Stack"
+import axios from "axios"
+import Dropdown from "react-bootstrap/Dropdown";
+
+import {ProjectSelect, DeviceSelect, Summary} from "./Components"
+
 
 class UploadClass extends React.Component {
 
@@ -16,14 +20,21 @@ class UploadClass extends React.Component {
         super(props);
 
         this.state = {
-            step: 1
+            projects: null,
+            devices: null,
+            currentProject: null,
+            currentDevice: null
         }
-
-        this.upload = this.upload.bind(this);
     }
 
-    upload() {
-        // TODO: UPLOAD A FILE
+    componentDidMount() {
+        axios.get('/hello')
+        .then(res => {this.setState({projects: res["data"]["projects"]})})
+        .catch(err => {console.log(err)});
+
+        axios.get('/devices')
+        .then(res => {this.setState({devices: res["data"]["devices"]})})
+        .catch(err => {console.log(err)});
     }
 
     render() {
@@ -34,117 +45,192 @@ class UploadClass extends React.Component {
                     <Col>
                         <Container id="container_selections">
                             <Stack gap={3}>
-                                <ProjectSelect/>
-                                <DeviceSelect/>
+                                <ProjectSelect context={this} projects={this.state.projects}/>
+                                <DeviceSelect context={this} devices={this.state.devices}/>
+
+                                <Stack gap={1}>
+                                    <Button className="actionButton">Choose file</Button>
+                                    <Button className="actionButton">Upload</Button>
+                                </Stack>
                             </Stack>
                         </Container>
                     </Col>
                     <Col>
                         <Summary >
-                            <h1>
-                                test
-                            </h1>
-                            <h2>
-                                testing
-                            </h2>
                         </Summary>
                     </Col>
                 </Row>
 
-                <Button className="actionButton" onClick={this.upload}>Upload</Button>
 
             </Container>
-        )
+        );
     }
 }
 
 class DownloadClass extends React.Component {
+
     constructor(props) {
         super(props);
 
         this.state = {
-            step: 1
+            projects: null,
+            devices: null,
+            currentProject: null,
+            currentDevice: null
         }
-
-        this.download = this.download.bind(this);
     }
 
-    download() {
-        // TODO: DOWNLOAD A FILE
+    componentDidMount() {
+        axios.get('/hello')
+        .then(res => {this.setState({projects: res["data"]["projects"]})})
+        .catch(err => {console.log(err)});
+
+        axios.get('/devices')
+        .then(res => {this.setState({devices: res["data"]["devices"]})})
+        .catch(err => {console.log(err)});
     }
 
     render() {
         return (
             <Container id="container_download">
-
                 <Row>
                     <Col>
                         <Container id="container_selections">
                             <Stack gap={3}>
-                                <ProjectSelect/>
-                                <DeviceSelect/>
+                                <ProjectSelect context={this} projects={this.state.projects}/>
+                                <DeviceSelect context={this} devices={this.state.devices}/>
+
+                                <Button className="actionButton">Download</Button>
                             </Stack>
                         </Container>
                     </Col>
                     <Col>
                         <Summary >
-                            <h1>
-                                test
-                            </h1>
                             <h2>
-                                testing
+                                {this.state.currentProject === null ? "" : "Number of points: " + this.state.currentProject["points"]}
+                            </h2>
+                            <h2>
+                                {this.state.currentProject === null ? "" : "Expected size: " + this.state.currentProject["eSize"]}
                             </h2>
                         </Summary>
                     </Col>
                 </Row>
-
-                <Button className="actionButton" onClick={this.download}>Download</Button>
-
 
             </Container>
         );
     }
 }
 
-class DropMenu extends React.Component {
+
+/*
+class ProjectMenuItem extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.id = props.item["id"];
+        this.name = props.item["name"];
+        this.points = props.item["points"];
+        this.size = props.item["eSize"];
+
+        this.clicked = this.clicked.bind(this);
+    }
+
+    clicked() {
+        this.props.context.setState({
+            currentProject: this.props.item
+        });
+    }
 
     render() {
+        return <Dropdown.Item as="button" onClick={this.clicked}>{this.name}</Dropdown.Item>;
+    }
+}
+
+class DeviceMenuItem extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.name = props.item["name"];
+        this.link = props.item["link"];
+
+        this.clicked = this.clicked.bind(this);
+    }
+
+    clicked() {
+        this.props.context.setState({
+            currentDevice: this.props.item
+        });
+    }
+
+    render() {
+        return <Dropdown.Item as="button" onClick={this.clicked}>{this.name}</Dropdown.Item>
+    }
+}
+
+const ProjectSelect = (props) => {
+    let items = null;
+
+    if(props.projects != null)
+        if(props.projects.length > 0)
+            items = props.projects;
+
+    if(items === null)
         return (
-            <DropdownButton id="dropdown-item-button" size={100} title={this.props.title}>
-                {this.props.children}
-            </DropdownButton>
+            <Container id="container_project">
+                <h1>Select Project</h1>
+                <DropdownButton title="project">
+                </DropdownButton>
+            </Container>
+        );
+    else {
+        return (
+            <Container id="container_project">
+                <h1>Select Project</h1>
+                <DropdownButton title={props.context.state.currentProject === null ? "project" : props.context.state.currentProject["name"]}>
+                    {
+                        items.map(v => {
+                            return(
+                                <ProjectMenuItem context={props.context} key={v["id"]} item={v}/>
+                            );
+                        })
+                    }
+                </DropdownButton>
+            </Container>
         );
     }
 }
 
-const ProjectSelect = () => {
-    return (
-        <Container id="container_project">
-            <h1>Select Project</h1>
-            <DropMenu title="project"/>
-            {
-                /*
-                    TODO: BACKEND CALL AND UPDATE DROPMENU 
-                    "id": "",
-                    "name": "",
-                    "no points": "",
-                    "expected size": ""
-                */
-            }
-        </Container>
-    );
-};
+const DeviceSelect = (props) => {
+    let items = null;
 
-const DeviceSelect = () => {
-    return (
-        <Container id="container_device">
-            <h1>Select Device</h1>
-            <DropMenu title="device"/>
-            {
-                // TODO: BACKEND CALL AND UPDATE DROPBMENU
-            }
-        </Container>
-    );
+    if(props.devices != null)
+        if(props.devices.length > 0)
+            items = props.devices;
+
+    if(items === null)
+        return (
+            <Container id="container_project">
+                <h1>Select Device</h1>
+                <DropdownButton id="dropdown-item-button" title="device">
+                </DropdownButton>
+            </Container>
+        );
+    else {
+        return (
+            <Container id="container_project">
+                <h1>Select Device</h1>
+                <DropdownButton id="dropdown-item-button" title={props.context.state.currentDevice === null ? "device" : props.context.state.currentDevice["name"]}>
+                    {
+                        items.map((v,i) => {
+                            return(
+                                <DeviceMenuItem context={props.context} key={i} item={v}/>
+                            );
+                        })
+                    }
+                </DropdownButton>
+            </Container>
+        );
+    }
 };
 
 const Summary = (props) => {
@@ -155,14 +241,7 @@ const Summary = (props) => {
         </Container>
     );
 };
+*/
 
-function Upload() {
-    return <UploadClass />
-}
-
-function Download() {
-    return <DownloadClass />
-}
-
-export default null;
-export {Upload, Download};
+export const Upload = () => {return <UploadClass/>}
+export const Download = () => {return <DownloadClass/>}

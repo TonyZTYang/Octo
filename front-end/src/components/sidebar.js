@@ -8,6 +8,8 @@ import Stack from "react-bootstrap/Stack";
 import Image from "react-bootstrap/Image";
 import Icon from "./icon.png";
 
+import Collapse from "react-bootstrap/Collapse"
+
 import Dashboard from "./Dashboard";
 import {Upload, Download} from "./FileIO"
 
@@ -34,6 +36,9 @@ class SideBar extends React.Component {
                     <MenuItem icon="dashboard" pageName="Dashboard" content={Dashboard}/>
                     <MenuItem icon="upload" pageName="Upload" content={Upload}/>
                     <MenuItem icon="download" pageName="Download" content={Download}/>
+                    <DropButton pageName="Project">
+
+                    </DropButton>
                 </Stack>
 
             </Container>
@@ -41,7 +46,46 @@ class SideBar extends React.Component {
     }
 }
 
+class DropButton extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            toggled: false
+        };
+
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick() {
+        this.setState({
+            toggled: !this.state.toggled
+        });
+    }
+
+    render() {
+        return (
+            <Container id="container_dropdown_button">
+                <Stack gap={2} id="stack_menu">
+                    <Button className="menu_item unselected" onClick={this.onClick}> {this.props.pageName} </Button>
+                    <Collapse in={this.state.toggled}>
+                        <div id="container_dropdown_item">
+                            <MenuItem pageName="Create"/>
+                        </div>
+                    </Collapse>
+                 </Stack>               
+            </Container>
+        );
+    }
+}
+
 class MenuItem extends React.Component {
+
+    constructor(props){
+        super(props);
+
+        this.onClick = this.onClick.bind(this);
+    }
 
     onClick() {
         SideBar.instance.setContent(this.props.content);

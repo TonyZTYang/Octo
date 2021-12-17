@@ -14,14 +14,8 @@ TODO:
 
 class Content extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        axios.get("/hello")
-        .then(res=>console.log(res))
-        .catch((error)=>console.log(error))
+
         return (
             <Container id="container_content">
                 {this.props.content}
@@ -35,11 +29,10 @@ function isLoggedIn() {
     return false;
 }
 
-
-
 function App() {
 
     const [currentContent, setContent] = useState(() => {return("")});
+
 
     return (
         <Container fluid id="container_body">
