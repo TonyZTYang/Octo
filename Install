@@ -1,0 +1,4 @@
+cd into back-end, run yarn install, then yarn start
+cd into front-end, run yarn intall, then yarn start
+the react app is bound to localhost:3000
+the express server is bound to localhost:8000
