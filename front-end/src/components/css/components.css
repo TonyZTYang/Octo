@@ -18,3 +18,25 @@
     float: left;
     padding: 0;
 }
+
+
+#stack_menu {
+    width: 100%;
+    display: flex;
+    align-items: center !important;
+    margin: 0;
+    padding: 0;
+}
+
+#container_dropdown_button {
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#container_dropdown_item {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}

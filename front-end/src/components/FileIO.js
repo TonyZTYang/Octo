@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Stack from "react-bootstrap/Stack"
 import axios from "axios"
+import Form from "react-bootstrap/Form"
 
 import {ColoredLine, ProjectSelect, DeviceSelect, Summary} from "./Components"
 
@@ -50,7 +51,7 @@ class UploadClass extends React.Component {
                                 <DeviceSelect context={this} devices={this.state.devices}/>
 
                                 <Stack gap={1}>
-                                    <Button className="actionButton">Choose file</Button>
+                                    <Button className="actionButton">Choose a file</Button>.
                                     <Button className="actionButton">Upload</Button>
                                 </Stack>
                             </Stack>
@@ -61,7 +62,6 @@ class UploadClass extends React.Component {
                         </Summary>
                     </Col>
                 </Row>
-
 
             </Container>
         );
@@ -104,6 +104,8 @@ class DownloadClass extends React.Component {
                             <Stack gap={3}>
                                 <ProjectSelect context={this} projects={this.state.projects}/>
                                 <DeviceSelect context={this} devices={this.state.devices}/>
+
+
 
                                 <Button className="actionButton">Download</Button>
                             </Stack>

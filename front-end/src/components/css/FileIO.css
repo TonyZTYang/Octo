@@ -29,3 +29,8 @@
 #dropdown_menu {
     width: 100%;
 }
+
+#test{
+    width: 150px;
+    align-self: center;
+}

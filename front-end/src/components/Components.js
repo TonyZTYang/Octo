@@ -5,6 +5,9 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton"
 import Container from "react-bootstrap/Container";
+import Stack from "react-bootstrap/Stack"
+import Button from "react-bootstrap/Stack"
+import Collapse from "react-bootstrap/Collapse"
 
 class ProjectMenuItem extends React.Component {
     constructor(props) {
