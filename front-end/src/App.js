@@ -15,7 +15,13 @@ TODO:
 class Content extends React.Component {
 
     render() {
+<<<<<<< HEAD
+        axios.get("/index")
+        .then(res=>console.log(res))
+        .catch((error)=>console.log(error))
+=======
 
+>>>>>>> master
         return (
             <Container id="container_content">
                 {this.props.content}
