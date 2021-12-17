@@ -2,15 +2,17 @@ import "./css/sidebar.css"
 
 import React from "react";
 
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Stack from "react-bootstrap/Stack";
-import Image from "react-bootstrap/Image";
-import Icon from "./icon.png";
+import Container from "react-bootstrap/Container"
+import Button from "react-bootstrap/Button"
+import Stack from "react-bootstrap/Stack"
+import Dashboard from "./Dashboard.js"
+import CreateProject from "./ProjectCreate.js"
+import ProjectDel from "./ProjectDelete.js"
+import ProjectEnd from "./ProjectEnd.js"
+import Image from "react-bootstrap/Image"
+import Icon from "./icon.png"
 
 import Collapse from "react-bootstrap/Collapse"
-
-import Dashboard from "./Dashboard"
 import {Upload, Download} from "./FileIO"
 
 class SideBar extends React.Component {
@@ -37,8 +39,10 @@ class SideBar extends React.Component {
                     <MenuItem icon="upload" pageName="Upload" content={Upload}/>
                     <MenuItem icon="download" pageName="Download" content={Download}/>
                     <DropButton pageName="Project">
-                        <MenuItem pageName="Create"/>
-                        <MenuItem pageName="End"/>
+                        <MenuItem pageName="Create" content={CreateProject}/>
+                        <MenuItem pageName="Delete" content={ProjectDel}/>
+                        <MenuItem pageName="End" content={ProjectEnd}/>
+
                     </DropButton>
                 </Stack>
 
