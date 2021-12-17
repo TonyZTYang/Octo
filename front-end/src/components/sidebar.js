@@ -10,7 +10,7 @@ import Icon from "./icon.png";
 
 import Collapse from "react-bootstrap/Collapse"
 
-import Dashboard from "./Dashboard";
+import Dashboard from "./Dashboard"
 import {Upload, Download} from "./FileIO"
 
 class SideBar extends React.Component {
@@ -38,6 +38,7 @@ class SideBar extends React.Component {
                     <MenuItem icon="download" pageName="Download" content={Download}/>
                     <DropButton pageName="Project">
                         <MenuItem pageName="Create"/>
+                        <MenuItem pageName="End"/>
                     </DropButton>
                 </Stack>
 
@@ -68,11 +69,13 @@ class DropButton extends React.Component {
             <Container id="container_dropdown_button">
                 <Stack gap={2} id="stack_menu">
                     <Button className="menu_item unselected" onClick={this.onClick}> {this.props.pageName} </Button>
+                    <div id="dropdown_menu">
                     <Collapse in={this.state.toggled}>
                         <div id="container_dropdown_item">
                             {this.props.children}
                         </div>
                     </Collapse>
+                    </div>
                  </Stack>               
             </Container>
         );

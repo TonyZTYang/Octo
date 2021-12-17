@@ -6,20 +6,6 @@
     flex-direction: column;
 }
 
-#container_project {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-#container_device {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
 #container_selections {
     display: flex;
     flex-direction: column;
@@ -33,15 +19,13 @@
     text-align: center;
 }
 
-#container_summary {
-    width: 100%;
-    margin: 0;
-    float: left;
-    padding: 0;
-}
-
 .actionButton {
-    width: 20%;
+    width: 150px;
     margin: 0;
     align-self: center;
+    background-color: #000051 !important;
+}
+
+#dropdown_menu {
+    width: 100%;
 }

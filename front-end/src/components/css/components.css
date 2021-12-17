@@ -1,0 +1,20 @@
+#container_project {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#container_device {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#container_summary {
+    width: 100%;
+    margin: 0;
+    float: left;
+    padding: 0;
+}

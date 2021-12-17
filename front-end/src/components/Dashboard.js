@@ -6,33 +6,74 @@ import Container from "react-bootstrap/Container";
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import DoughnutChart from './DoughnutChart'
 import ListGroup from 'react-bootstrap/ListGroup'
+import Stack from "react-bootstrap/Stack"
+import Button from "react-bootstrap/Button"
 
-class Dash extends React.Component {
-    render() {
-        return (
-            <Container>
-                <h1 > Dashboard </h1>
-                
-                <ColoredLine color="lightgray" />
+import axios from "axios"
 
-                <h2> Progress Tracker </h2>
-                <ProgressBar now={45} />
+import {ProjectSelect} from "./Components"
 
-                <h2> Team </h2>
-                
-                <ListGroup as="ol" numbered>
-                    <ListGroup.Item as="li">Jia Song</ListGroup.Item>
-                    <ListGroup.Item as="li">Li Yunru</ListGroup.Item>
-                    <ListGroup.Item as="li">Xu Bohai</ListGroup.Item>
-                    <ListGroup.Item as="li">Zheng Fengge</ListGroup.Item>
-                    <ListGroup.Item as="li">Zhou Wen</ListGroup.Item>
-                </ListGroup>
-                
+class DashboardClass extends React.Component {
 
-                <DoughnutChart/>
-            </Container>
-        );
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            currentProject: null,
+            projects: null
+        }
     }
+    
+    componentDidMount() {
+        axios.get('/hello')
+        .then(res => this.setState({projects: res["data"]["projects"]}))
+        .catch(err => console.log(err));
+    }
+
+    render() {
+        if(this.state.currentProject === null) {
+            return (
+                <Container id="container_project">
+                    <ProjectSelect context={this} projects={this.state.projects} />
+                </Container>
+            );
+        } else 
+            return (
+                <Container>
+
+                    <Stack gap={3}>
+                    
+                        <div>
+                            <h1 > Dashboard - {this.state.currentProject["name"]}</h1>
+                            
+                            <ColoredLine color="lightgray" />
+                        </div>
+
+
+                        <div>
+                            <h2> Progress Tracker - {"Deadline: " + this.state.currentProject["deadline"]}</h2>
+                            <ProgressBar now={this.state.currentProject["progress"]} /> 
+                            <h3> Number of points detected: {this.state.currentProject["points"]}</h3>
+                        </div>
+
+                        <div>
+                            <h2> Team </h2>
+                            <ListGroup as="ol" numbered>
+                                {
+                                    this.state.currentProject["team"].map(v => {
+                                        return <ListGroup.Item as="li">{v}</ListGroup.Item>
+                                    })
+                                }
+                            </ListGroup>
+                        </div>
+
+                    </Stack>
+
+                    <Button id="button_change" onClick={() => {this.setState({currentProject: null})}}>Change Projects</Button>
+
+                </Container>
+            );
+        }
 }
 
 const ColoredLine = ({ color }) => (
@@ -46,7 +87,7 @@ const ColoredLine = ({ color }) => (
 );
 
 function Dashboard() {
-    return <Dash />;
+    return <DashboardClass />;
 }
 
 export default Dashboard;

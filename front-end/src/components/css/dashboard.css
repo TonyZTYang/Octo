@@ -1,3 +1,16 @@
+#container_project {
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+#button_change {
+    margin-top: 80px;
+    width: 100%;
+    background-color: #000051;
+    font-size: 20px;
+}
+
 h1{
     margin-top: 10px;
 }
@@ -10,5 +23,5 @@ h2{
     margin-top: 10px !important;
 }
 .progress-bar{
-    background-color: #1761af !important;
+    background-color: #000065 !important;
 }
