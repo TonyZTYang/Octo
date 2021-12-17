@@ -4,7 +4,7 @@ import React from "react";
 
 import Container from "react-bootstrap/Container";
 import Form from 'react-bootstrap/Form'
-import { Row, Col, Grid } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { DateTime } from 'react-datetime-bootstrap';
 import Button from 'react-bootstrap/Button';
@@ -194,6 +194,7 @@ class Project extends React.Component {
     }
 }
 
+//horizontal ruler for header
 const ColoredLine = ({ color }) => (
     <hr
         style={{
@@ -204,9 +205,9 @@ const ColoredLine = ({ color }) => (
     />
 );
 
-
-function ProjectManagement() {
+//return Project to be used in sidebar
+function CreateProject() {
     return <Project/>;
 }
 
-export default ProjectManagement;
+export default CreateProject;

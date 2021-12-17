@@ -17,3 +17,7 @@ h3{
 #dateTime{
     margin-bottom: 0;
 }
+
+#deleteBox, #endBox{
+    margin-top: 2em;
+}

@@ -5,6 +5,7 @@ import SideBar from "./components/sidebar.js"
 import Container from "react-bootstrap/Container"
 import Authentication from "./components/authentication";
 import React, { useState } from "react"
+import axios from "axios"
 
 /*
 TODO:
@@ -13,13 +14,10 @@ TODO:
 
 class Content extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
+
         return (
-            <Container id="container_content" >
+            <Container id="container_content">
                 {this.props.content}
             </Container>
         )
@@ -34,6 +32,7 @@ function isLoggedIn() {
 function App() {
 
     const [currentContent, setContent] = useState(() => {return("")});
+
 
     return (
         <Container fluid id="container_body">

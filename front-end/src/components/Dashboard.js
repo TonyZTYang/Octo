@@ -7,21 +7,10 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import DoughnutChart from './DoughnutChart'
 import ListGroup from 'react-bootstrap/ListGroup'
 
-const ColoredLine = ({ color }) => (
-    <hr
-        style={{
-            color: color,
-            backgroundColor: color,
-            height: 2
-        }}
-    />
-);
-
-function Dashboard() {
-    return (
-        <Container>
-            <div id="dbHeader">
-                
+class Dash extends React.Component {
+    render() {
+        return (
+            <Container>
                 <h1 > Dashboard </h1>
                 
                 <ColoredLine color="lightgray" />
@@ -40,15 +29,24 @@ function Dashboard() {
                 </ListGroup>
                 
 
-                <DoughnutChart></DoughnutChart>
-           
-            </div>
-
-        </Container>
-    
-
-    );
+                <DoughnutChart/>
+            </Container>
+        );
+    }
 }
 
+const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+            color: color,
+            backgroundColor: color,
+            height: 2
+        }}
+    />
+);
+
+function Dashboard() {
+    return <Dash />;
+}
 
 export default Dashboard;
