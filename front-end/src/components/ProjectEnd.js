@@ -34,6 +34,13 @@ class ProjectE extends React.Component {
                             <option value="10">Profile 10</option>
                         </Form.Select>
                         </FloatingLabel>
+                        <FloatingLabel controlId="floatingSelectGrid" label="Archive Date">
+                        <Form.Select aria-label="Archive Date" id="archive">
+                            <option value="six_months">Six Months</option>
+                            <option value="twelve_months">Twelve Months</option>
+                        </Form.Select>
+                        </FloatingLabel>
+
                         <Button variant="primary" type="submit" className="mt-2">
                          End
                         </Button>
