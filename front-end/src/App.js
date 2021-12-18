@@ -5,7 +5,7 @@ import SideBar from "./components/sidebar.js"
 import Container from "react-bootstrap/Container"
 import Authentication from "./components/authentication";
 import React, { useState } from "react"
-import axios from "axios"
+// import axios from "axios"
 
 /*
 TODO:
@@ -15,13 +15,6 @@ TODO:
 class Content extends React.Component {
 
     render() {
-<<<<<<< HEAD
-        axios.get("/index")
-        .then(res=>console.log(res))
-        .catch((error)=>console.log(error))
-=======
-
->>>>>>> master
         return (
             <Container id="container_content">
                 {this.props.content}
@@ -30,22 +23,21 @@ class Content extends React.Component {
     }
 }
 
-function isLoggedIn() {
-
-    return false;
-}
 
 function App() {
 
     const [currentContent, setContent] = useState(() => {return("")});
-
-
-    return (
-        <Container fluid id="container_body">
-            <SideBar setContent={setContent}/>
-            <Content content={currentContent} />
-        </Container>
-    );
+    const [signedIn, setSignedIn] = useState(false);
+    
+    if (!signedIn)
+        return <Authentication signedIn={signedIn} setSignedIn={setSignedIn} />
+    else {
+        return (
+            <Container fluid id="container_body">
+                <SideBar setContent={setContent}/>
+                <Content content={currentContent} />
+            </Container>
+        );}
 }
 
 export default App;

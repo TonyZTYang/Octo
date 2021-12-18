@@ -53,15 +53,23 @@ class Field extends React.Component {
     }
 }
 
-function Authentication() {
+function Authentication(props) {
 
     const [isLoggingIn, setLoggingIn] = useState(true);
+    const {signedIn, setSignedIn} = props
+    const loggingin = () => setLoggingIn(!isLoggingIn)
+    const signin = () =>{
+        setTimeout(() => {
+            setSignedIn(true);
+        }, 2000);
+        
+    }
 
     function handleSubmit(e) {
-        const labelPhone = "labelPhoneNumber";
+        // const labelPhone = "labelPhoneNumber";
         const labelName = "labelName";
         const labelInviteCode ="labelInvitationCode";
-        const labelPass = "labelPassword";
+        // const labelPass = "labelPassword";
 
         const data = {};
 
@@ -88,6 +96,7 @@ function Authentication() {
         }
 
         // TODO: LOGIN OR REGISTER PROCESS
+        
     }
 
     return (
@@ -98,8 +107,8 @@ function Authentication() {
                 <Field type="text" hint="Name" validation={ (value) => { return value !== "" } } hidden={isLoggingIn} />
                 <Field id="field_password" type="password" hint="Password" validation={ (value) => { return value !== "" } } />
                 <Field type="text" hint="Invitation Code" validation={ (value) => { return value !== "" } } hidden={isLoggingIn} />
-                <Button id="button_submit" type="Submit">{isLoggingIn ? "Login" : "Register"}</Button>
-                <Button id="button_switch_process" onClick={() => setLoggingIn(!isLoggingIn)}>{isLoggingIn ? "Don't have an account?" : "Already have an account?"}</Button>
+                <Button id="button_submit" type="Submit" onClick={signin}>{isLoggingIn ? "Login" : "Register"}</Button>
+                <Button id="button_switch_process" onClick={loggingin}>{isLoggingIn ? "Don't have an account?" : "Already have an account?"}</Button>
             </Form>
         </Container>
    );
