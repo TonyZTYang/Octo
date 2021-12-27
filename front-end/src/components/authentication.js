@@ -59,10 +59,7 @@ function Authentication(props) {
     const {signedIn, setSignedIn} = props
     const loggingin = () => setLoggingIn(!isLoggingIn)
     const signin = () =>{
-        setTimeout(() => {
-            setSignedIn(true);
-        }, 2000);
-        
+        setSignedIn(true)
     }
 
     function handleSubmit(e) {

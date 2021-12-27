@@ -20,18 +20,11 @@ class ProjectD extends React.Component {
                         {/* form for choosing profile to delete */}
                         <Form id ="deleteBox">
                         {/* dropdown for selecting profile */}
-                        <FloatingLabel controlId="floatingSelectGrid" label="Profile Name">
+                        <FloatingLabel controlId="floatingSelectGrid" label="Project Name">
                         <Form.Select aria-label="Profile">
-                            <option value="1">Profile 1</option>
-                            <option value="2">Profile 2</option>
-                            <option value="3">Profile 3</option>
-                            <option value="4">Profile 4</option>
-                            <option value="5">Profile 5</option>
-                            <option value="6">Profile 6</option>
-                            <option value="7">Profile 7</option>
-                            <option value="8">Profile 8</option>
-                            <option value="9">Profile 9</option>
-                            <option value="10">Profile 10</option>
+                            <option value="1">Project 1</option>
+                            <option value="2">Project 2</option>
+                            <option value="3">Project 3</option>
                         </Form.Select>
                         </FloatingLabel>
                         <Button variant="primary" type="submit" className="mt-2">
